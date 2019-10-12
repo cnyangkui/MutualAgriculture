@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图鉴</title>
+<link rel="shortcut icon" href="img/icon_web_mini.png" type=""/>
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="css/dist/AdminLTE.min.css">
+<link rel="stylesheet" href="css/capSlide.css">
+<style type="text/css">
+	#back_to_top{
+	    position: fixed;
+	    display: none;
+	    bottom: 100px;
+	    right: 100px;
+	    z-index: 30;
+	}
+</style>
+</head>
+
+<body style="background-color: #ECF0F5">
+<!--返回顶部-->
+
+<div class="container">
+	<section class="content-header">
+	      <ol class="breadcrumb">
+	        <li><a href="javascript:dashboard()"><i class="fa fa-dashboard"></i> 仪表盘</a></li>
+	        <li class="active">病虫图鉴</li>
+	      </ol>
+	</section>
+	<br/>
+    <br/>
+    	<div style="left:10px;" class="input-group col-sm-6">
+          <input type="text" name="q" class="form-control" style="border: 0; background: white; " placeholder="搜索...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat" style="background: white;"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+        <br/>
+<div class="content_capSlide">
+
+  <div style="clear:both;"></div>
+  
+  <div class="demo">
+    <div id="capslide_img_cont1" class="ic_container"> <img src="testimg/img01th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont2" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont3" class="ic_container"> <img src="testimg/img03th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont4" class="ic_container"> <img src="testimg/img04th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont5" class="ic_container"> <img src="testimg/img05th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont6" class="ic_container"> <img src="testimg/img06th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont7" class="ic_container"> <img src="testimg/img07th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont8" class="ic_container"> <img src="testimg/img08th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont9" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont1" class="ic_container"> <img src="testimg/img01th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont2" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont3" class="ic_container"> <img src="testimg/img03th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont4" class="ic_container"> <img src="testimg/img04th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont5" class="ic_container"> <img src="testimg/img05th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont6" class="ic_container"> <img src="testimg/img06th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont7" class="ic_container"> <img src="testimg/img07th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont8" class="ic_container"> <img src="testimg/img08th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont9" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont1" class="ic_container"> <img src="testimg/img01th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont2" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont3" class="ic_container"> <img src="testimg/img03th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont4" class="ic_container"> <img src="testimg/img04th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont5" class="ic_container"> <img src="testimg/img05th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont6" class="ic_container"> <img src="testimg/img06th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont7" class="ic_container"> <img src="testimg/img07th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont8" class="ic_container"> <img src="testimg/img08th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont9" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont1" class="ic_container"> <img src="testimg/img01th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont2" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont3" class="ic_container"> <img src="testimg/img03th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont4" class="ic_container"> <img src="testimg/img04th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont5" class="ic_container"> <img src="testimg/img05th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont6" class="ic_container"> <img src="testimg/img06th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont7" class="ic_container"> <img src="testimg/img07th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont8" class="ic_container"> <img src="testimg/img08th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  <div class="demo">
+    <div id="capslide_img_cont9" class="ic_container"> <img src="testimg/img02th.jpg" width="auto" height="190" alt=""/>
+      <div class="overlay_capSlide" style="display:none;"></div>
+      <div class="ic_caption">
+        <p class="ic_category">Category</p>
+        <h3>Amazing Image Title</h3>
+        <p class="ic_text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+</div>
+
+	<script src="js/plugins/jQuery/jquery-2.2.3.min.js" type="text/javascript"></script>
+	<script src="js/jquery.capSlide.js" type="text/javascript"></script>
+	<script type="text/javascript">
+            $(function() {
+                $(".ic_container").capslide({
+                    caption_color	: '#000',
+                    caption_bgcolor	: '#fff',
+                    overlay_bgcolor : '#00A65A',
+                    border			: '',
+                    showcaption	    : true
+                });
+            });
+
+            //适配宽度
+            var y = 0;
+            var count = 0;
+			$(".demo").each(function (index) {
+				var _y = $(this).position().top;
+				if(y == 0){
+					y = _y;
+				}
+				if(_y != y){
+					count++;
+					y = _y;
+				}
+				$(this).attr("row_count",count);
+			})
+			var maxrow = $(".demo").last().attr("row_count");
+			var pagewidth = $(".container").width()-30;
+			for(var i = 0; i <= maxrow; i++){
+				var row = $(".demo[row_count="+i+"]");
+				var last = row.last();
+				var rowpiccount = 0;
+				row.each(function () {
+					rowpiccount++;
+				})
+				var rowwidth = last.position().left - $(".demo").first().position().left + last.width();
+				var multiple = (pagewidth-(rowpiccount)*20)/(rowwidth-(rowpiccount)*20);
+				row.each(function (index) {
+					$(this).find('img').attr("height",Math.floor(190*multiple))
+				})
+				//console.log(multiple)
+			}
+    </script>
+	
+</body>
+</html>

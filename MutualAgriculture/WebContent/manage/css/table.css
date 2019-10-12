@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+
+tbody tr.selected,table.dataTable.display tbody tr.selected{
+    background-color:#a9d1bf;
+}
+    	
+tr.include:hover{
+    background-color:#e3e8e6;
+}
+    	
+tr.selected:hover{
+    background-color:#a9d1bf;
+}
+

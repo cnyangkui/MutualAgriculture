@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Calendar</title>
+  <link rel="shortcut icon" href="img/icon_web_mini.png" type=""/>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- fullCalendar 2.2.5-->
+  <link rel="stylesheet" href="css/plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="css/plugins/fullcalendar/fullcalendar.print.min.css" media="print">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/dist/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="css/dist/skin/skin-green-light.min.css">
+<link href="depend/bootstrap3-editable/css/bootstrap-editable.css"
+	rel="stylesheet" />
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+<link href="depend/loading/loading.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="hold-transition skin-green-light sidebar-mini" style="background-color: #ECF0F5">
+<!-- 等待加载 -->
+<div id="loading">
+	<div id="loading-center">
+		<div id="loading-center-absolute">
+			<div class="object" id="object_one"></div>
+			<div class="object" id="object_two"></div>
+			<div class="object" id="object_three"></div>
+			<div class="object" id="object_four"></div>
+		</div>
+	</div>
+</div>
+  <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+    <!-- <section class="content-header">
+      <ol class="breadcrumb">
+        <li class="active"><i class="fa fa-dashboard"></i> 仪表盘</li>
+      </ol>
+    </section> -->
+    <!-- Main content -->
+    
+    
+    <div style="width:100%;">
+	  <!-- Nav tabs -->
+	  <br>
+	  <ul class="nav nav-tabs" role="tablist">
+	    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">智能日历</a></li>
+	    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">未来天气</a></li>
+	    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">日期规划</a></li>
+	    <!-- <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li> -->
+	  </ul>
+	
+	  <!-- Tab panes -->
+	  <div class="tab-content">
+	    <div role="tabpanel" class="tab-pane active" id="home">
+	    	<br/>
+	    	<section>
+		      <div class="row">
+		        <!-- /.col -->
+		        <div class="col-md-9">
+		          <div class="box box-success">
+		            <div class="box-body no-padding">
+		              <!-- THE CALENDAR -->
+		              <div id="calendar"></div>
+		            </div>
+		            <!-- /.box-body -->
+		          </div>
+		          <!-- /. box -->
+		        </div>
+		        <!-- /.col -->
+		        <div class="col-md-3">
+		          <div class="box box-solid">
+		            <div class="box-header with-border">
+		              <h4 class="box-title">可拖拽的事项</h4>
+		            </div>
+		            <div class="box-body">
+		              <!-- the events -->
+		              <div id="external-events">
+		                <div class="external-event bg-green">和朋友午餐</div>
+		                <div class="external-event bg-aqua">小组会议</div>
+		                <div class="external-event bg-red">汇报工作</div>
+		                <div class="external-event bg-yellow">回家</div>
+		                <div class="external-event bg-light-blue">休息</div>
+		                <div class="checkbox">
+		                  <label for="drop-remove">
+		                    <input type="checkbox" id="drop-remove">
+		                    拖拽后删除
+		                  </label>
+		                </div>
+		              </div>
+		            </div>
+		            <!-- /.box-body -->
+		          </div>
+		          <!-- /. box -->
+		          <div class="box box-solid">
+		            <div class="box-header with-border">
+		              <h3 class="box-title">新建事项</h3>
+		            </div>
+		            <div class="box-body">
+		              <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
+		                <!--<button type="button" id="color-chooser-btn" class="btn btn-info btn-block dropdown-toggle" data-toggle="dropdown">Color <span class="caret"></span></button>-->
+		                <ul class="fc-color-picker" id="color-chooser">
+		                  <li><a class="text-aqua" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-blue" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-light-blue" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-teal" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-yellow" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-orange" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-green" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-lime" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-red" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-purple" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-fuchsia" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-muted" href="#"><i class="fa fa-square"></i></a></li>
+		                  <li><a class="text-navy" href="#"><i class="fa fa-square"></i></a></li>
+		                </ul>
+		              </div>
+		              <!-- /btn-group -->
+		              <div class="input-group">
+		                <input id="new-event" type="text" class="form-control" placeholder="输入事项">
+		
+		                <div class="input-group-btn">
+		                  <button id="add-new-event" type="button" class="btn btn-success btn-flat">添加</button>
+		                </div>
+		                <!-- /btn-group -->
+		              </div>
+		              <!-- /input-group -->
+		            </div>
+		          </div>
+		        </div>
+		        
+		      </div>
+		      <!-- /.row -->
+		    </section>
+	    </div>
+	    <br>
+	    <div role="tabpanel" class="tab-pane" id="profile">
+	    	<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">天气预测</h3>
+						</div>
+						<div class="panel-body">
+							<div id="monthweather" style="width:900px;height:500px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	    <div role="tabpanel" class="tab-pane" id="messages">
+	    	<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">日期规划</h3>
+						</div>
+						<div class="panel-body">
+							<div class="accordion-inner">
+								<table class="table table-bordered table-striped">
+									<tbody>
+										<tr>
+											<th style="width: 80px"><label>操作</label></th>
+											<th style="width: 80px"><label>开始时间</label></th>
+											<th style="width: 80px"><label>结束时间</label></th>
+											<th style="width: 80px"><label>工作效率（亩/小时）</label></th>
+										</tr>
+										<tr>
+											<th><label>压青</label></th>
+											<td><a href="#" id="b1"></a></td>
+											<td><a href="#" id="e1"></a></td>
+											<td><a href="#" id="x1"></a></td>
+										</tr>
+										<tr>
+											<th><label>施底肥</label></th>
+											<td><a href="#" id="b2"></a></td>
+											<td><a href="#" id="e2"></a></td>
+											<td><a href="#" id="x2"></a></td>
+										</tr>
+										<tr>
+											<th><label>平整</label></th>
+											<td><a href="#" id="b3"></a></td>
+											<td><a href="#" id="e3"></a></td>
+											<td><a href="#" id="x3"></a></td>
+										</tr>
+										<tr>
+											<th><label>插秧</label></th>
+											<td><a href="#" id="b4"></a></td>
+											<td><a href="#" id="e4"></a></td>
+											<td><a href="#" id="x4"></a></td>
+										</tr>
+										<tr>
+											<th><label>追肥</label></th>
+											<td><a href="#" id="b5"></a></td>
+											<td><a href="#" id="e5"></a></td>
+											<td><a href="#" id="x5"></a></td>
+										</tr>
+										<tr>
+											<th><label>防虫</label></th>
+											<td><a href="#" id="b6"></a></td>
+											<td><a href="#" id="e6"></a></td>
+											<td><a href="#" id="x6"></a></td>
+										</tr>
+										<tr>
+											<th><label>收割</label></th>
+											<td><a href="#" id="b7"></a></td>
+											<td><a href="#" id="e7"></a></td>
+											<td><a href="#" id="x7"></a></td>
+										</tr>
+									</tbody>
+								</table>
+								<button type="button" class="btn btn-success" onclick="reloadPlan()">重新规划</button>
+								<button type="button" class="btn btn-danger" onclick="cancel()">取消规划</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	    <!-- <div role="tabpanel" class="tab-pane" id="settings">.f..</div> -->
+	  </div>
+	
+	</div>
+    
+    
+    <!-- /.content -->
+  <!-- /.content-wrapper -->
+  <div class="control-sidebar-bg"></div>
+<!-- ./wrapper -->
+<!--model-->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" style="margin-top: 120px;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">智能任务</h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- jQuery 2.2.3 -->
+<script src="js/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Slimscroll -->
+<script src="js/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="js/plugins/fastclick/fastclick.min.js"></script>
+<!-- AdminLTE App -->
+<script src="js/dist/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="js/dist/demo.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="js/fullcalendar/moment.min.js"></script>
+<script src="js/fullcalendar/fullcalendar.min.js"></script>
+<script src="js/fullcalendar/locale-all.js"></script>
+<!-- Page specific script -->
+<script src="depend/echarts/echarts.common.min.js"></script>
+<script src="depend/select2/select2.min.js"></script>
+<!-- 天气js -->
+<script src="js/weather.js"></script>
+<!-- 编辑文本框 -->
+<script src="depend/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+<!-- 日期规划 -->
+<script src="js/planstandard.js"></script>
+
+<script>
+  $(function () {
+	  $("#loading").fadeOut("slow");  
+    /* initialize the external events
+     -----------------------------------------------------------------*/
+    function ini_events(ele) {
+      ele.each(function () {
+        // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+        // it doesn't need to have a start or end
+        var eventObject = {
+          title: $.trim($(this).text()) // use the element's text as the event title
+        };
+
+        // store the Event Object in the DOM element so we can get to it later
+        $(this).data('eventObject', eventObject);
+
+        // make the event draggable using jQuery UI
+        $(this).draggable({
+          zIndex: 1070,
+          revert: true, // will cause the event to go back to its
+          revertDuration: 0  //  original position after the drag
+        });
+
+      });
+    }
+      
+      //获取计划
+      $.post("../aiPlanningServlet", {op:"getPlan"}, function(data) {
+    	  var events = [];
+    	  var colors= ["#f56954","#f39c12","#0073b7","#00c0ef","#00a65a","#ff00ff","#008899"];
+    	  //events.push({title:"aaaaaaaa",start:new Date(2017,0,10),end:new Date(2017,0,31)});
+    	  for(var i=0; i<data.length; i++) {
+    		  var mod = i % 7 ; 
+    		  events.push({
+    			  title:"@"+ data[i].event + "@"+ data[i].bname + "@" + data[i].mnum+"台农机", 
+    			  start:formatDate(data[i].aid)
+    			  //end:getEndDate(formatDate(data[i].aid), 1).toString()
+    			  //backgroundColor: colors[mod],
+	   	          //borderColor: colors[mod]
+    	      })
+    	  }
+    	  
+    	//Date for the calendar events (dummy data)
+    	    
+    	    
+    	    /* ADDING EVENTS */
+    	  var date = new Date();
+	   	    var d = date.getDate(),
+	   	        m = date.getMonth(),
+	   	        y = date.getFullYear();
+	   	 	var initialLocaleCode = 'zh-cn';
+
+	   	    $('#calendar').fullCalendar({
+	   	      header: {
+	   	        left: 'prev,next today',
+	   	        center: 'title',
+	   	        right: 'month,listWeek,listDay'//'month,agendaWeek,agendaDay,listMonth'
+	   	      },
+		   	   views: {
+				   month: {buttonText: '月'}	,   		   
+		   		   listWeek: { buttonText: '周' },
+		   		   listDay: { buttonText: '天' }
+				},
+				defaultView: 'month',
+
+	   	      locale: initialLocaleCode,
+	   	      editable: true,
+	   	      navLinks: true, // can click day/week names to navigate views
+	   	      eventLimit: true, // allow "more" link when too many events
+	   	      events:events,
+		   	   eventClick: function(calEvent, jsEvent, view) {
+				   var title = calEvent.title;
+				   var str = title.split("@");
+				   var event = str[1];
+				   var bnames = str[2];
+				   var mnum = str[3];
+				   $(".modal-body").html('');
+				   $(".modal-body").append("<p>任务类型："+event+"</p><p>任务区域："+bnames+"</p><p>农机数量："+mnum+"</p>");
+				   $('#myModal').modal('show');
+		           //alert('Event: ' + calEvent.title);
+		           //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+		           //alert('View: ' + view.name);
+	
+		           // change the border color just for fun
+		           //$(this).css('border-color', 'red');
+	
+		       },
+	   	      droppable: true, // this allows things to be dropped onto the calendar !!!
+	   	      drop: function (date, allDay) { // this function is called when something is dropped
+	
+	   	        // retrieve the dropped element's stored Event Object
+	   	        var originalEventObject = $(this).data('eventObject');
+	
+	   	        // we need to copy it, so that multiple events don't have a reference to the same object
+	   	        var copiedEventObject = $.extend({}, originalEventObject);
+	
+	   	        // assign it the date that was reported
+	   	        copiedEventObject.start = date;
+	   	        copiedEventObject.allDay = allDay;
+	   	        copiedEventObject.backgroundColor = $(this).css("background-color");
+	   	        copiedEventObject.borderColor = $(this).css("border-color");
+	
+	   	        // render the event on the calendar
+	   	        // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+	   	        $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
+	
+	   	        // is the "remove after drop" checkbox checked?
+	   	        if ($('#drop-remove').is(':checked')) {
+	   	          // if so, remove the element from the "Draggable Events" list
+	   	          $(this).remove();
+	   	        }
+	
+	   	      }
+	   	    });
+	   	    /******************************************************/
+	   	 ini_events($('#external-events div.external-event'));
+
+	     /* initialize the calendar
+	      -----------------------------------------------------------------*/
+	     //Date for the calendar events (dummy data)
+	     
+	     
+	     /* ADDING EVENTS */
+	     var currColor = "#3c8dbc"; //Red by default
+	     //Color chooser button
+	     var colorChooser = $("#color-chooser-btn");
+	     $("#color-chooser > li > a").click(function (e) {
+	       e.preventDefault();
+	       //Save color
+	       currColor = $(this).css("color");
+	       //Add color effect to button
+	       $('#add-new-event').css({"background-color": currColor, "border-color": currColor});
+	     });
+	     $("#add-new-event").click(function (e) {
+	       e.preventDefault();
+	       //Get value and make sure it is not null
+	       var val = $("#new-event").val();
+	       if (val.length == 0) {
+	         return;
+	       }
+
+	       //Create events
+	       var event = $("<div />");
+	       event.css({"background-color": currColor, "border-color": currColor, "color": "#fff"}).addClass("external-event");
+	       event.html(val);
+	       $('#external-events').prepend(event);
+
+	       //Add draggable funtionality
+	       ini_events(event);
+
+	       //Remove event from text input
+	       $("#new-event").val("");
+	     });
+	     
+      }, "json");
+    
+    
+    
+  });
+  
+  function changeDate(obj) {
+  	//obj = obj.valueOf();
+  	//obj = obj+24 * 60 * 60 * 1000;
+  	//obj = new Date(obj);
+  	var d = obj.getDate(),
+	        m = obj.getMonth(),
+	        y = obj.getFullYear();
+  	return new Date(y,m,d);
+  }
+  
+  function getEndDate(obj, num) {
+	  var d = obj.getDate(),
+	        m = obj.getMonth(),
+	        y = obj.getFullYear();
+	  return new Date(y,m,d+num);
+  }
+  
+
+  function formatDate(obj) {
+	  obj = obj.toString();
+	  var y = obj.substring(0,4),
+	  m = obj.substring(4,6),
+	  d = obj.substring(6,8);
+	  return y+"-"+m+"-"+d;
+  }
+</script>
+</body>
+</html>

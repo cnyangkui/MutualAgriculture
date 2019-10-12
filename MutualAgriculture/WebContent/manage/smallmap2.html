@@ -1,0 +1,76 @@
+
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mcc568Fn4O4pF5ldXtFOs8ILbQGPG1jl"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+
+<style>
+#allmap {
+	font-family: "微软雅黑";
+	height: 480px;
+	margin: 0;
+	overflow: hidden;
+	width: 100%;
+}
+.baidu-maps label {max-width: none;}
+</style>
+	
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 800px;">
+			<div class="modal-content">
+				<div class="modal-header" style="margin-top: 320px;">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					搜索：<input type="text" id="suggestId" size="20" value=""
+						style="width: 150px; height: 30px;">&nbsp;&nbsp;
+					<div id="searchResultPanel"
+						style="border: 1px solid #C0C0C0; width: 150px; height: auto; display: none;"></div>
+					经纬度：<input type="text" name="showGeography" id="coordinate"
+						style="width: 150px; height: 30px;" value="">&nbsp;&nbsp;
+					地址：<input type="text" name="showGeography" style="width: 150px; height: 30px;"
+						id="_address" value="">&nbsp;&nbsp;
+					<button type="button" class="btn btn-success btn-sm" style="margin-top: -4px;" onclick="submitChange()">提交更改</button>
+					<p> </p>
+					<div id="allmap" class="baidu-maps"></div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+
+<!-- 	<script type="text/javascript" src="js/map/mapInit.js"></script>
+	<script type="text/javascript" src="js/map/search.js"></script>
+	<script type="text/javascript" src="js/map/location.js"></script>
+	<script type="text/javascript" src="js/map/mapType.js"></script> -->
+	<script src="js/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="js/map/map.js"></script>
+	<script type="text/javascript">
+	function showModal() {
+		$(".tangram-suggestion-main").css("z-index","9999");
+		$(".modal-header").append($(".tangram-suggestion-main"));
+		
+		$.post("../blockServlet?op=getAllBlockData",{},function getData(data){
+	    	
+	    	for(var m in data){
+	    		addMark(data[m]);
+	    	}
+	    }, "json");
+	}
+	
+	var farmlandId;
+    function addMark(data){
+    	var me=this;     
+    	var label;     
+    	var point = new BMap.Point(data.longitude,data.latitude);    //建立测试point点
+    	var marker = new BMap.Marker(point);
+    	label = new BMap.Label(data.bname, { offset: new BMap.Size(20, 0) }); //创建marker点的标记,这里注意下,因为百度地图可以对label样式做编辑,所以我这里吧重要的id放在了label(然后再隐藏)
+    	//label.setStyle(  {   display:"none"         });//对label 样式隐藏   
+    	marker.setLabel(label);  //把label设置到maker上  
+    	//marker.setTitle(data.address); //这里设置maker的title (鼠标放到marker点上,会出现它的title,所以我这里把name,放到title里)   
+    	me.map.addOverlay(marker);  //把maker点添加到 地图上   
+    };
+	</script>
+		
+	

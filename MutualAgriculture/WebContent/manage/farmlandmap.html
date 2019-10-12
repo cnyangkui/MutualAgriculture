@@ -1,0 +1,106 @@
+
+<link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mcc568Fn4O4pF5ldXtFOs8ILbQGPG1jl"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+
+<style>
+#allmap {
+	font-family: "微软雅黑";
+	height: 480px;
+	margin: 0;
+	overflow: hidden;
+	width: 100%;
+}
+.baidu-maps label {max-width: none;}
+</style>
+	
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" style="width: 800px;">
+			<div class="modal-content">
+				<div class="modal-header">
+				<!-- <div style="position: absolute; display: none;z-index:9999; left: 0px; top: -1px;" class="tangram-suggestion-main" id="tangram-suggestion--TANGRAM__2e-main" data-guid="TANGRAM__1m"><div id="tangram-suggestion--TANGRAM__2e" class="tangram-suggestion" style="position:relative; top:0px; left:0px"></div></div>
+				 -->
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					搜索：<input type="text" id="suggestId" size="20" value=""
+						style="width: 150px; height: 30px;">&nbsp;&nbsp;
+					<div id="searchResultPanel"
+						style="border: 1px solid #C0C0C0; width: 150px; height: auto; display: none;"></div>
+					<button type="button" class="btn btn-success btn-sm" style="margin-top: -4px;" onclick="farmlandOK()">确定选择</button>
+					<p> </p>
+					<div id="allmap" class="baidu-maps"></div>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+
+	<script src="js/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="js/map/clickmark.js"></script>
+	<script type="text/javascript">
+	function showModal() {
+		$(".tangram-suggestion-main").css("z-index","9999");
+		$(".modal-header").append($(".tangram-suggestion-main"));
+		
+		$.post("../blockServlet?op=getAllBlockData",{},function getData(data){
+	    	
+	    	for(var m in data){
+	    		addMark(data[m]);
+	    	}
+	    }, "json");
+	}
+	var temp = new BMap.Marker();
+	var myIcon = new BMap.Icon("img/logoMarker/location.png", new BMap.Size(30,30),
+	        {anchor:new BMap.Size(15,30),infoWindowAnchor: new BMap.Size(15, 0)} );
+	
+	var myIcon2 = new BMap.Icon("img/logoMarker/location2.png", new BMap.Size(30,30),
+	        {anchor:new BMap.Size(15,30),infoWindowAnchor: new BMap.Size(15, 0)} );
+	var bid;
+    function addMark(data){
+    	var me=this;     
+    	var label;     
+    	var point = new BMap.Point(data.longitude,data.latitude);    //建立测试point点
+    	var marker = new BMap.Marker(point,{icon:myIcon, enableDragging: false,
+            raiseOnDrag: true});
+    	label = new BMap.Label(data.bid+","+data.bname, { offset: new BMap.Size(20, 0) }); //创建marker点的标记,这里注意下,因为百度地图可以对label样式做编辑,所以我这里吧重要的id放在了label(然后再隐藏)
+    	//label.setStyle(  {   display:"none"         });//对label 样式隐藏   
+    	marker.setLabel(label);  //把label设置到maker上  
+    	//marker.setTitle(data.address); //这里设置maker的title (鼠标放到marker点上,会出现它的title,所以我这里把name,放到title里)   
+    	me.map.addOverlay(marker);  //把maker点添加到 地图上   
+    	data["chargerMarker"]=marker;   //这里很重要, 把maker对象放到缓存的data 里面  
+    	marker.addEventListener("click", function (e) {      //这里添加maker的监听点击事件,触发自定义div("#info-panel)的展示 
+			$("#info-panel").toggle(300);//div展开,关闭         
+			me.tag=e.target.getLabel().content; //点击maker点后  获取label里面的内容        
+			$("#id").html(e.target.getLabel().content); //这里就可以获取到marker的id        
+			 
+			temp.setIcon(myIcon);
+    		bid = e.target.getLabel().content;
+    		marker.setIcon(myIcon2);
+    		temp = marker;
+    		
+    	});
+    };
+    
+    
+    function farmlandOK() {
+    	if(bid != undefined) {
+    		$('#myModal').modal('hide');
+    		bid = bid.split(",")[0];
+    		$.post("../blockServlet?op=getBlockByBid",{bid:bid}, function(data) {
+    			$("#zonename").text(data.zone.zonename);
+    			$("#bname").text(data.bid+" "+data.bname);
+    			$("#croptype").text(data.zone.type);
+    			$("#address").editable('setValue', data.address)
+    		},"json");
+    		
+    	} else {
+    		alert("先选择农田...")
+    	}
+    }
+
+	</script>
+		
+	

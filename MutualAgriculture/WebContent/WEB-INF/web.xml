@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	<filter>
+		<filter-name>CharacterEncoding</filter-name>
+		<filter-class>com.geowind.hunong.filters.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>CheckAdminIsLoginFilter</filter-name>
+		<filter-class>com.geowind.hunong.filters.CheckAdminIsLoginFilter</filter-class>
+		<init-param>
+			<param-name>errorPage</param-name>
+			<param-value>login.html</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CheckAdminIsLoginFilter</filter-name>
+		<url-pattern>/manage/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>WeatherServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.WeatherServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WeatherServlet</servlet-name>
+		<url-pattern>/weatherServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PestZoneServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.PestZoneServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PestZoneServlet</servlet-name>
+		<url-pattern>/pestZoneServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PestQuestionServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.PestQuestionServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PestQuestionServlet</servlet-name>
+		<url-pattern>/pestQuestionServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ServiceStationServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.ServiceStationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ServiceStationServlet</servlet-name>
+		<url-pattern>/serviceStaionServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GasStationServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.GasStationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GasStationServlet</servlet-name>
+		<url-pattern>/gasStationServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>CenterServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.CenterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CenterServlet</servlet-name>
+		<url-pattern>/CenterServlet</url-pattern>
+	</servlet-mapping>
+	
+
+	<servlet>
+		<servlet-name>InitServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.InitServlet</servlet-class>
+		<init-param>
+			<param-name>uploadPath</param-name>
+			<param-value>../HN_upload</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/UserServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LibraryServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.LibraryServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LibraryServlet</servlet-name>
+		<url-pattern>/LibraryServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>TaskServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.TaskServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TaskServlet</servlet-name>
+		<url-pattern>/taskServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BUserServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.BUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BUserServlet</servlet-name>
+		<url-pattern>/bUserServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BMachineOwnerServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.BMachineOwnerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BMachineOwnerServlet</servlet-name>
+		<url-pattern>/bMachineOwnerServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BZoneServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.BZoneServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BZoneServlet</servlet-name>
+		<url-pattern>/bZoneServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.AdminServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/adminServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>BFarmlandServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.BFarmlandServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BFarmlandServlet</servlet-name>
+		<url-pattern>/bFarmlandServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BMachineServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.BMachineServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BMachineServlet</servlet-name>
+		<url-pattern>/bMachineServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/uploadServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>PestOrConsultInfoUploadServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.PestOrConsultInfoUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PestOrConsultInfoUploadServlet</servlet-name>
+		<url-pattern>/pestOrConsultInfoUploadServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ConsultServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.ConsultServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConsultServlet</servlet-name>
+		<url-pattern>/consultServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PestlibServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.PestlibServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PestlibServlet</servlet-name>
+		<url-pattern>/pestlibServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>BlockServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.BlockServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BlockServlet</servlet-name>
+		<url-pattern>/blockServlet</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>TreeServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.TreeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TreeServlet</servlet-name>
+		<url-pattern>/treeServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AiPlanningServlet</servlet-name>
+		<servlet-class>com.geowind.hunong.servlet.AiPlanningServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AiPlanningServlet</servlet-name>
+		<url-pattern>/aiPlanningServlet</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.html</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500.html</location>
+	</error-page>
+	<listener>
+    	<listener-class>com.geowind.hunong.listener.WeatherDataTaskListener</listener-class>
+	</listener>
+</web-app>

@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>文库百科</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <link rel="stylesheet" href="css/skins/_all-skins.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font/css/font-awesome.min.css">
+
+  <style type="text/css">
+  #back_to_top{
+      position: fixed;
+      display: none;
+      bottom: 100px;
+      right: 100px;
+      z-index: 30;
+  }
+</style>
+</head>
+<!-- ADD THE CLASS sidedar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
+<body class="hold-transition skin-green-light sidebar-mini ">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header" style="position:fixed;z-index=1;width:100%">
+
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation" style="background-color: #42CEB8">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <strong>互农</strong><small style="margin-left:1px;">文库百科</small>
+            </a>
+          </li>
+          <!-- /.messages-menu -->
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" style="position:fixed;z-index=1;">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <ul class="sidebar-menu" id="view_list">
+              <li class="header">目录</li>
+             <!--  <li><a href="#"><i class="fa fa-circle-o text-green"></i> <span>Information</span></a></li>-->
+            </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="margin-top:35px;">
+    <section class="content-header">
+      <div style="background-color: black;" id="img_Wrapper" style="margin-top: 18px;">
+         <!-- <img src="images/p3.png" alt="" id="top_pic" class="col-center-block" width="95%" style=" position: relative;"> -->
+    </div>
+
+      <div style="margin-top: 10px;">
+          <span style="border-bottom: 1px solid #919491;font-size: 24px;padding-bottom: 5px; " id="title_h1">豌豆</span>
+        </div>
+
+        <div id="summary" style="margin-top: 10px;"> 
+        </div> 
+        
+        <div id="article_div" style="margin-top: 10px;">
+        
+        </div>
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+
+    <strong>Copyright &copy; 2016 <a href="http://www.geowind.cn" style="color: #42CEB8;" target="_Blank">geowind</a>.</strong> All rights reserved.
+    <!-- Default to the left -->
+  </footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="js/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="js/app.min.js"></script>
+
+<script type="text/javascript">
+
+		function getById(sname){
+				return document.getElementById(sname);
+		}
+		$(document).ready(function(){
+			//when the windows changed , we chan rechange the relative
+			init();
+
+			window.onresize = function(){
+				// console.log("change!!");
+    			init();
+			}
+		});
+		function init(){
+			// img_Wrapper
+			var img_Wrapper = getById("img_Wrapper");
+			var widthLen = img_Wrapper.scrollWidth;
+			var heightLen = widthLen * 0.618;
+			img_Wrapper.style.height = heightLen +'px';
+			var real_width,real_height,
+	         _im         = document.getElementById('top_pic'),
+	         im          = document.createElement('img');
+	         im.src      = _im.src,
+	         real_width  = im.width,
+	         real_height = im.height;
+			var p_w = real_width,p_h = real_height;
+			var set_w,set_h;
+			if(p_w > widthLen || p_h > heightLen){
+
+				if(p_w > widthLen && p_h > heightLen){
+					//console.log('1');
+					set_w = widthLen;
+					set_h = widthLen * ((p_h * 1.0/ p_w * 1.0) * 1.0);
+					if(set_h > heightLen){
+						set_h = heightLen ;
+						set_w = heightLen * ((p_w * 1.0/ p_h * 1.0) * 1.0);
+					}
+				}
+				else if(p_w > widthLen){
+					//console.log('2');
+					set_w = widthLen;
+					set_h = widthLen * ((p_h * 1.0/ p_w * 1.0) * 1.0);
+				}
+				else{
+					//console.log('3');
+					set_h = heightLen ;
+					set_w = heightLen * ((p_w * 1.0/ p_h * 1.0) * 1.0);
+				}
+				set_h = set_h * 0.98;
+				set_w = set_w * 0.98;
+				top_pic.style.height = set_h   +'px';
+				top_pic.style.width = set_w  +'px';
+				var dx = (heightLen - set_h) / 2.0 + 0.5 ;
+				widthLen = top_pic.style.width;
+				 top_pic.style.top = dx+'px';
+				//console.log(widthLen);
+
+			} 
+
+		}
+</script>
+
+</body>
+</html>
+
+

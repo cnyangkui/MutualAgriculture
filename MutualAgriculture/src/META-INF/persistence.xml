@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="model" transaction-type="RESOURCE_LOCAL">
+		<provider>
+			org.eclipse.persistence.jpa.PersistenceProvider
+		</provider>
+		<class>com.geowind.hunong.jpa.Task</class>
+		<class>com.geowind.hunong.jpa.Pestzone</class>
+		<class>com.geowind.hunong.jpa.Zone</class>
+		<class>com.geowind.hunong.jpa.Block</class>
+		<class>com.geowind.hunong.jpa.Order</class>
+		<class>com.geowind.hunong.jpa.Consult</class>
+		<class>com.geowind.hunong.jpa.Pestquestion</class>
+		<class>com.geowind.hunong.jpa.Pestlib</class>
+		<class>com.geowind.hunong.jpa.Servicestation</class>
+		<class>com.geowind.hunong.jpa.Machine</class>
+		<class>com.geowind.hunong.jpa.Trader</class>
+		<class>com.geowind.hunong.jpa.Machineowner</class>
+		<class>com.geowind.hunong.jpa.Orderitem</class>
+		<class>com.geowind.hunong.jpa.User</class>
+		<class>com.geowind.hunong.jpa.Insectcontrol</class>
+		<class>com.geowind.hunong.jpa.Resource</class>
+		<class>com.geowind.hunong.jpa.Admin</class>
+		<class>com.geowind.hunong.jpa.Center</class>
+		<class>com.geowind.hunong.jpa.Article</class>
+		<class>com.geowind.hunong.jpa.Farmland</class>
+		<class>com.geowind.hunong.jpa.Gasstation</class>
+		<class>com.geowind.hunong.jpa.Systeminfo</class>
+		<class>com.geowind.hunong.jpa.Planstandard</class>
+		<class>com.geowind.hunong.jpa.Aiplan</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/mutualagriculture?characterEncoding=utf-8" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="123456" />
+			<property name="eclipselink.cache.shared.default" value="false"/>
+			<property name="eclipselink.cache.size.default" value="0"/>
+			<property name="eclipselink.cache.type.default" value="None"/>
+			<property name="eclipselink.query-results-cache" value="false"/>
+			<property name="eclipselink.refresh" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>
